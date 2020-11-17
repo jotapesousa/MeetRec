@@ -1,26 +1,56 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
-const config = require('./config.json');
+const { prefix, token } = require('./config.json');
 
-const TOKEN = config.token;
+const client = new Discord.Client();
+client.commands = new Discord.Collection();
+const botCommands = require('./commands');
+
+const PDFKit = require('pdfkit');
+const fs = require('fs');
+
+const pdf = new PDFKit();
+
+pdf.text('Hello Rocketseat PDF');
+
+pdf.pipe(fs.createWriteStream('output.pdf'));
+pdf.end();
+
+Object.keys(botCommands).map(key => {
+    client.commands.set(botCommands[key].name, botCommands[key]);
+    console.log(botCommands[key].name);
+});
+
+let texto = 'Inicio de texto ';
+
+client.on('message', msg => {
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    
+    const commandBody = msg.content.slice(prefix.length);
+    const args = commandBody.split(' ');
+    const command = args.shift().toLowerCase();
+    console.info(`Comando Chamado: ${command}`);
+  
+    if (!client.commands.has(command)) return;
+  
+    try {
+      client.commands.get(command).execute(texto, msg, args);
+    } catch (error) {
+      console.error(error);
+      msg.reply('Erro ao tentar executar o comando!');
+    }
+});
 
 
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`)
-    // console.log(`Bot iniciado, com ${client.users.size} usuários, em ${client.channels.size} canais, em ${client.guilds.size} servidores`);
-    // client.user.setGame(`Eu estou em ${client.guilds.size} servidores`);
+    console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('guildCreate', guild => {
     console.log(`O bot entrou no servidor: ${guild.name} (id: ${guild.id}). Númeto de participantes: ${guild.memberCount} membros!`);
-})
+});
 
 client.on("guildDelete", guild => {
     console.log(`O bot foi removido do servidor: ${guild.name} (id: ${guild.id})`);
-})
-
-client.on('message', async message => {
-
 });
 
-client.login(TOKEN);
+client.login(token);
