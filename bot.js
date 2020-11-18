@@ -23,7 +23,7 @@ Object.keys(botCommands).map(key => {
 let texto = 'Inicio de texto ';
 
 client.on('message', msg => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (!msg.content.startsWith(prefix) || msg.author.bot) return;
     
     const commandBody = msg.content.slice(prefix.length);
     const args = commandBody.split(' ');
