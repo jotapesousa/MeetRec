@@ -20,7 +20,13 @@ Object.keys(botCommands).map(key => {
     console.log(botCommands[key].name);
 });
 
+// Global variables
 let texto = 'Inicio de texto ';
+global.title     = '';
+global.date      = '';
+global.beginHour = '';
+global.endHour   = '';
+
 
 client.on('message', msg => {
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
