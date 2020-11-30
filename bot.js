@@ -26,7 +26,8 @@ global.title     = '';
 global.date      = '';
 global.beginHour = '';
 global.endHour   = '';
-
+global.topic     = '';
+global.topics    = [];
 
 client.on('message', msg => {
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;

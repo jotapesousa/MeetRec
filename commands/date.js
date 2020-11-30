@@ -6,6 +6,6 @@ module.exports = {
         args.forEach(function(key, value) {
         	date += key + ' ';
         });
-      msg.channel.send('A data foi definida para: ' + date);
+    	msg.channel.send('A data foi definida para: ' + date);
     },
 };

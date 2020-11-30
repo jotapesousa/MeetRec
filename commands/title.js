@@ -6,6 +6,6 @@ module.exports = {
         args.forEach(function(key, value) {
         	title += key + ' ';
         });
-      msg.channel.send('O título foi definido para: ' + title);
+      	msg.channel.send('O título foi definido para: ' + title);
     },
 };
