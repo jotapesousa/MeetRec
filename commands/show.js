@@ -5,7 +5,7 @@ module.exports = {
 		msg.channel.send('**Titulo:** ' + title + '\n' +
 						 '**Data:** ' + date + '\n' +
 						 '**Tópicos:** ');
-		points.forEach(function(value, key) {
+		topics.forEach(function(value, key) {
 			msg.channel.send('['+ key + '] ' + value);
 		});
 	},

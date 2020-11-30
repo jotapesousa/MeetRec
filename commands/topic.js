@@ -2,11 +2,11 @@ module.exports = {
 	name: 'topic',
     description: 'Adds a new topic to the Ata',
     execute(texto, msg, args) {
-    	point = '';
+    	topic = '';
         args.forEach(function(key, value) {
-        	point += key + ' ';
+        	topic += key + ' ';
         });
-        points.push(point);
+        topics.push(topic);
       	msg.channel.send('Adicionado!');
     },
 };
