@@ -28,12 +28,6 @@ global.title            = '';
 global.date             = '';
 global.beginHour        = '';
 global.endHour          = '';
-// global.topicComments    = [];
-// global.comment          = {
-//     title: '',
-//     value: ''
-// };
-
 global.topics           = [];
 
 client.on('message', msg => {
