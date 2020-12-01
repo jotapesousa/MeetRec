@@ -17,11 +17,12 @@ pdf.end();
 
 Object.keys(botCommands).map(key => {
     client.commands.set(botCommands[key].name, botCommands[key]);
-    console.log(botCommands[key].name);
+    // console.log(botCommands[key].name);
 });
 
 // Global variables
 let texto = 'Inicio de texto ';
+global.init      = false;
 global.title     = '';
 global.date      = '';
 global.beginHour = '';
@@ -31,14 +32,12 @@ global.topics    = [];
 
 client.on('message', msg => {
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
-    
+
     const commandBody = msg.content.slice(prefix.length);
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
     console.info(`Comando Chamado: ${command}`);
-  
-    if (!client.commands.has(command)) return;
-  
+
     try {
       client.commands.get(command).execute(texto, msg, args);
     } catch (error) {

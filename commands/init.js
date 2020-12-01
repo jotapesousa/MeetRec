@@ -1,17 +1,24 @@
+const initDate = require('./date')
+
 module.exports = {
-    name: 'init',
+    name: 'init3',
     description: 'Iniciar Reunião!',
     execute(texto, msg, args) {
-        const PDFKit = require('pdfkit');
-        const fs = require('fs');
+ 
+        if (init != false) {
+            msg.channel.send('Já existe uma reunião ocorrendo. Você precisa finalizá-la antes de dar início a uma outra.');
 
-        const pdf = new PDFKit();
+            return
+        }
 
-        pdf.text('Inicio de Ata ', Date.now());
+        init = true;
 
-        pdf.pipe(fs.createWriteStream('testeAta.pdf'));
-        pdf.end();
+        var data = new Date();
+        var str_hora = data.getHours() + ':' + data.getMinutes();
+        var str_data = data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear()+1;
 
-        msg.channel.send('Baixando ata...');
+        initDate.initDate();
+
+        msg.channel.send('Reunião iniciada às ' + str_hora + ' do dia ' + str_data);
     },
   };
