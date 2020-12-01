@@ -1,7 +1,7 @@
 const initDate = require('./date')
 
 module.exports = {
-    name: 'init3',
+    name: 'init',
     description: 'Iniciar Reunião!',
     execute(texto, msg, args) {
  

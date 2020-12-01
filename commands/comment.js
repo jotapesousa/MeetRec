@@ -19,19 +19,20 @@ module.exports = {
 
     topics.forEach((topic) => {
       if ('-' + topic.name == arg_topic) {
+        args.shift();
         var comment = {
           title: '',
-          value: args[1],
+          text: args.join(' '),
         };
 
         topic.comments.push(comment);
 
         msg.channel.send('Comentário adicionado!');
-        return;
+        return false;
       }
-
-      msg.channel.send('Não existe tópico com este nome. Verifique o comando.');
-      return;
     });
+    
+    msg.channel.send('Não existe tópico com este nome. Verifique o comando.');
+    return;
   },
 };
