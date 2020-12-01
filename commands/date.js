@@ -17,11 +17,15 @@ module.exports = {
 	name: 'date',
     description: 'Sets the Ata\'s begin_date',
     execute(texto, msg, args) {
-    	date = '';
-        args.forEach(function(key, value) {
-        	date += key + ' ';
-        });
-    	msg.channel.send('A data foi definida para: ' + date);
+        if (init === false) {
+            msg.channel.send('Inicie a reunião antes!');
+        } else {
+            date = '';
+            args.forEach(function(key, value) {
+                date += key + ' ';
+            });
+            msg.channel.send('A data foi definida para: ' + date);
+        }
     },
     initDate() {
         d = new Date();

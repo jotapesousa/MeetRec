@@ -5,7 +5,7 @@ module.exports = {
     description: 'Iniciar Reunião!',
     execute(texto, msg, args) {
  
-        if (init != false) {
+        if (init !== false) {
             msg.channel.send('Já existe uma reunião ocorrendo. Você precisa finalizá-la antes de dar início a uma outra.');
 
             return
@@ -15,7 +15,7 @@ module.exports = {
 
         var data = new Date();
         var str_hora = data.getHours() + ':' + data.getMinutes();
-        var str_data = data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear()+1;
+        var str_data = data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear();
 
         initDate.initDate();
 
