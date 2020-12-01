@@ -11,6 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.4.1",
+    "node-latex": "^3.0.0",
+    "package.json": "^2.0.1",
     "pdfkit": "^0.11.0"
+  },
+  "devDependencies": {
+    "node-dev": "^6.2.0"
   }
 }
