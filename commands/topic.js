@@ -1,12 +1,23 @@
 module.exports = {
-	name: 'topic',
+    name: 'topic',
     description: 'Adds a new topic to the Ata',
     execute(texto, msg, args) {
-    	topic = '';
+        if (init == false) {
+            msg.channel.send('Inicie a reunião antes!');
+            return;
+        }
+
+        var topic = {
+            name: '',
+            comments: [],
+        };
+
         args.forEach(function(key, value) {
-        	topic += key + ' ';
+        	topic.name = key;
         });
+        
         topics.push(topic);
-      	msg.channel.send('Adicionado!');
+
+      	msg.channel.send('Tópico adicionado!');
     },
 };

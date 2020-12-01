@@ -22,13 +22,19 @@ Object.keys(botCommands).map(key => {
 
 // Global variables
 let texto = 'Inicio de texto ';
-global.init      = false;
-global.title     = '';
-global.date      = '';
-global.beginHour = '';
-global.endHour   = '';
-global.topic     = '';
-global.topics    = [];
+
+global.init             = false;
+global.title            = '';
+global.date             = '';
+global.beginHour        = '';
+global.endHour          = '';
+// global.topicComments    = [];
+// global.comment          = {
+//     title: '',
+//     value: ''
+// };
+
+global.topics           = [];
 
 client.on('message', msg => {
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
