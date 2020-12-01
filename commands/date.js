@@ -1,4 +1,4 @@
-var meses = [
+const meses = [
     "Janeiro",
     "Fevereiro",
     "Março",
